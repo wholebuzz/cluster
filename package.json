@@ -1,0 +1,61 @@
+{
+  "name": "@wholebuzz/cluster",
+  "version": "0.0.1",
+  "description": "SimHash text clustering with OutRank outlier removal and variation of information analysis.",
+  "author": "wholebuzz",
+  "license": "Apache-2.0",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/wholebuzz/cluster.git"
+  },
+  "types": "./lib/index.d.ts",
+  "scripts": {
+    "prepublishOnly": "yarn build",
+    "build": "tsc -b .",
+    "clean": "tsc -b . --clean",
+    "docs": "typedoc --disableOutputCheck && rm -rf docs/README.md && ./scripts/updateReadmeApiReference.sh",
+    "test": "jest --runInBand --ci --passWithNoTests",
+    "test:coverage": "jest --runInBand --ci --passWithNoTests --coverage --no-cache",
+    "lint": "tslint -c tslint.json --project .",
+    "fix": "yarn lint --fix",
+    "format": "yarn run prettier --config .prettierrc.js --write 'src/*.+(ts)'"
+  },
+  "main": "lib/index.js",
+  "files": [
+    "lib/**/*"
+  ],
+  "dependencies": {
+    "@wholebuzz/search": "^0.0.4",
+    "bigint-popcnt": "git+https://github.com/wholebuzz/bigint-popcnt.git",
+    "compute-cosine-similarity": "^1.0.0",
+    "cosine-similarity": "^1.0.1",
+    "mathjs": "^7.0.2",
+    "outliers": "git+https://github.com/wholebuzz/outliers",
+    "peirce-criterion": "^1.1.0"
+  },
+  "devDependencies": {
+    "@types/jest": "^26.0.22",
+    "@types/mathjs": "^6.0.5",
+    "@types/node": "^13.13.5",
+    "jest": "^26.6.3",
+    "lodash": "^4.17.15",
+    "prettier": "^2.3.2",
+    "ts-jest": "^26.5.4",
+    "tslint": "^5.20.0",
+    "tslint-config-prettier": "^1.18.0",
+    "tslint-eslint-rules": "^5.4.0",
+    "tslint-microsoft-contrib": "^6.2.0",
+    "typedoc": "^0.20.35",
+    "typedoc-plugin-markdown": "3.8.2",
+    "typescript": "4.2.4",
+    "typescript-tslint-plugin": "^1.0.1"
+  },
+  "nyc": {
+    "reporter": [
+      "cobertura",
+      "json",
+      "lcov",
+      "text"
+    ]
+  }
+}
