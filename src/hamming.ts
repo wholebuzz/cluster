@@ -1,7 +1,12 @@
 import { HashFunction } from '@wholebuzz/search/lib/tokens'
-import { HasFingerprint } from '@wholebuzz/search/lib/types'
 import { fastpopcnt } from 'bigint-popcnt'
-import { dbscan, GetItemLabel, ItemGraph, LabeledDataset } from './cluster'
+import {
+  dbscan,
+  FingerprintedLabeledDataset,
+  GetItemLabel,
+  ItemClustering,
+  ItemGraph,
+} from './cluster'
 import { newPermutation } from './math'
 
 const zero = BigInt(0)
@@ -10,11 +15,11 @@ const one = BigInt(1)
 export interface ClusterByHammingDistanceOptions<Item> {
   beamWidth?: number
   fingerprintBits?: number
-  nearnessThreshhold?: number
+  nearnessThreshold?: number
   rounds?: number
   rehash?: HashFunction[]
   rehasherFn?: (x: Item, hash: HashFunction) => bigint
-  clusterFn?: (graph: ItemGraph<Item>, getItemLabel: GetItemLabel<Item>) => Record<string, number>
+  clusterFn?: (graph: ItemGraph<Item>, getItemLabel: GetItemLabel<Item>) => ItemClustering
 }
 
 /**
@@ -23,28 +28,28 @@ export interface ClusterByHammingDistanceOptions<Item> {
  * @param news Array of articles with SimHash [[`fingerprint`]].
  * @optional options The [[ClusterOptions]] to apply.
  */
-export async function clusterByHammingDistance<Item extends HasFingerprint>(
-  data: LabeledDataset<Item>,
+export function clusterByHammingDistance<Item>(
+  data: FingerprintedLabeledDataset<Item>,
   options?: ClusterByHammingDistanceOptions<Item>
-) {
+): ItemClustering {
   const fingerprintBits = options?.fingerprintBits || 64
   const rounds = options?.rounds || 36
   const hashRounds = rounds / ((options?.rehash?.length ?? 0) + 1)
   const permuteFingerprint = (x: Item, round: number, permutation: Array<bigint>) =>
     options?.rehash?.length && options?.rehasherFn && round > 0 && round % hashRounds === 0
       ? options.rehasherFn(x, options.rehash[round / hashRounds - 1])
-      : permuteBits(x.fingerprint, permutation)
+      : permuteBits(data.getItemFingerprint(x), permutation)
   const pairs: ItemGraph<Item> = {}
 
   for (let r = 0; r < rounds; r++) {
     if (r > 0) {
       const permutation = newPermutation(fingerprintBits)
-      data.items.forEach((x) => (x.fingerprint = permuteFingerprint(x, r, permutation)))
+      data.items.forEach((x) => data.setItemFingerprint(x, permuteFingerprint(x, r, permutation)))
     }
     addHammingNeighbors(
       pairs,
       data,
-      options?.nearnessThreshhold || 6,
+      options?.nearnessThreshold || 6,
       options?.beamWidth || 12,
       fingerprintBits > 64 ? hammingDistanceConstantTimeFunction(fingerprintBits) : hammingDistance
     )
@@ -61,19 +66,19 @@ export async function clusterByHammingDistance<Item extends HasFingerprint>(
  * @param rounds Number of times to randomly permute [[`fingerprint`]] bits, re-sort, and sift.
  * @param beamWidth Number of sort-order adjacent points to check for nearness.
  */
-export function addHammingNeighbors<Item extends HasFingerprint>(
+export function addHammingNeighbors<Item>(
   output: ItemGraph<Item>,
-  data: LabeledDataset<Item>,
+  data: FingerprintedLabeledDataset<Item>,
   threshhold: number,
   beamWidth: number,
   hammingDist: (x: bigint, y: bigint) => number
 ) {
-  data.items.sort((a, b) => Number(a.fingerprint - b.fingerprint))
+  data.items.sort((a, b) => Number(data.getItemFingerprint(a) - data.getItemFingerprint(b)))
   for (let i = 0; i + 1 < data.items.length; i++) {
     const a = data.items[i]
     for (let j = 1; j <= beamWidth && i + j < data.items.length; j++) {
       const b = data.items[i + 1]
-      if (hammingDist(a.fingerprint, b.fingerprint) > threshhold) continue
+      if (hammingDist(data.getItemFingerprint(a), data.getItemFingerprint(b)) > threshhold) continue
       const aKey = data.getItemLabel(a)
       const bKey = data.getItemLabel(b)
       if (!output[aKey]) output[aKey] = new Set([a])
