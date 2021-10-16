@@ -18,7 +18,7 @@
 
 • **centrality**: *number*[]
 
-Defined in: outrank.ts:6
+Defined in: [outrank.ts:6](https://github.com/wholebuzz/cluster/blob/master/src/outrank.ts#L6)
 
 ___
 
@@ -26,7 +26,7 @@ ___
 
 • **deltas**: *number*[]
 
-Defined in: outrank.ts:4
+Defined in: [outrank.ts:4](https://github.com/wholebuzz/cluster/blob/master/src/outrank.ts#L4)
 
 ___
 
@@ -34,4 +34,4 @@ ___
 
 • **dim**: *number*[]
 
-Defined in: outrank.ts:5
+Defined in: [outrank.ts:5](https://github.com/wholebuzz/cluster/blob/master/src/outrank.ts#L5)

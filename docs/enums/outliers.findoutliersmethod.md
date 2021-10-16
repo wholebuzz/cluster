@@ -18,7 +18,7 @@
 
 • **Handfit**: = 0
 
-Defined in: outliers.ts:14
+Defined in: [outliers.ts:14](https://github.com/wholebuzz/cluster/blob/master/src/outliers.ts#L14)
 
 ___
 
@@ -26,7 +26,7 @@ ___
 
 • **InterquantileRange**: = 1
 
-Defined in: outliers.ts:15
+Defined in: [outliers.ts:15](https://github.com/wholebuzz/cluster/blob/master/src/outliers.ts#L15)
 
 ___
 
@@ -34,4 +34,4 @@ ___
 
 • **PeirceCriterion**: = 2
 
-Defined in: outliers.ts:16
+Defined in: [outliers.ts:16](https://github.com/wholebuzz/cluster/blob/master/src/outliers.ts#L16)

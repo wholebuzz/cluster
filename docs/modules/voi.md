@@ -13,7 +13,7 @@
 
 ### variationOfInformation
 
-▸ **variationOfInformation**<Item\>(`truth`: Item[], `pred`: Item[], `getItemLabel`: [*GetItemLabel*](cluster.md#getitemlabel)<Item\>, `ignoreUnlabeled?`: *boolean*): *object*
+▸ **variationOfInformation**<Item\>(`truth`: Item[], `pred`: Item[], `getItemLabel`: *GetItemLabel*<Item\>, `ignoreUnlabeled?`: *boolean*): *object*
 
 #### Type parameters
 
@@ -27,7 +27,7 @@
 | :------ | :------ | :------ |
 | `truth` | Item[] | - |
 | `pred` | Item[] | - |
-| `getItemLabel` | [*GetItemLabel*](cluster.md#getitemlabel)<Item\> | - |
+| `getItemLabel` | *GetItemLabel*<Item\> | - |
 | `ignoreUnlabeled` | *boolean* | false |
 
 **Returns:** *object*
@@ -45,7 +45,7 @@
 | `recall` | *number* |
 | `value` | *number* |
 
-Defined in: voi.ts:5
+Defined in: [voi.ts:6](https://github.com/wholebuzz/cluster/blob/master/src/voi.ts#L6)
 
 ___
 
@@ -79,4 +79,4 @@ ___
 | `truthKeys` | *string*[] |
 | `value` | *number* |
 
-Defined in: voi.ts:65
+Defined in: [voi.ts:66](https://github.com/wholebuzz/cluster/blob/master/src/voi.ts#L66)

@@ -6,20 +6,18 @@
 
 ### Interfaces
 
-- [LabeledTextDataset](../interfaces/text.labeledtextdataset.md)
-- [TextDataset](../interfaces/text.textdataset.md)
+- [SimhashClusterTextOptions](../interfaces/text.simhashclustertextoptions.md)
 
 ### Functions
 
-- [filterOutliersByTFIDFCentrality](text.md#filteroutliersbytfidfcentrality)
+- [findOutliersByTFIDFCentrality](text.md#findoutliersbytfidfcentrality)
 - [simhashClusterText](text.md#simhashclustertext)
-- [simhashWithIDFMap](text.md#simhashwithidfmap)
 
 ## Functions
 
-### filterOutliersByTFIDFCentrality
+### findOutliersByTFIDFCentrality
 
-▸ **filterOutliersByTFIDFCentrality**<Item\>(`data`: [*TextDataset*](../interfaces/text.textdataset.md)<Item\>, `centralityMeasure`: [*OutRank*](../enums/outliers.clustercentralitymeasure.md#outrank), `removalMethod?`: [*FindOutliersMethod*](../enums/outliers.findoutliersmethod.md)): [*FoundOutliers*](../interfaces/outliers.foundoutliers.md)
+▸ **findOutliersByTFIDFCentrality**<Item\>(`data`: *LexiconDataset*<Item\>, `centralityMeasure?`: [*ClusterCentralityMeasure*](../enums/outliers.clustercentralitymeasure.md), `removalMethod?`: [*FindOutliersMethod*](../enums/outliers.findoutliersmethod.md)): [*FoundOutliers*](../interfaces/outliers.foundoutliers.md)
 
 #### Type parameters
 
@@ -31,19 +29,19 @@
 
 | Name | Type |
 | :------ | :------ |
-| `data` | [*TextDataset*](../interfaces/text.textdataset.md)<Item\> |
-| `centralityMeasure` | [*OutRank*](../enums/outliers.clustercentralitymeasure.md#outrank) |
+| `data` | *LexiconDataset*<Item\> |
+| `centralityMeasure` | [*ClusterCentralityMeasure*](../enums/outliers.clustercentralitymeasure.md) |
 | `removalMethod` | [*FindOutliersMethod*](../enums/outliers.findoutliersmethod.md) |
 
 **Returns:** [*FoundOutliers*](../interfaces/outliers.foundoutliers.md)
 
-Defined in: text.ts:45
+Defined in: [text.ts:30](https://github.com/wholebuzz/cluster/blob/master/src/text.ts#L30)
 
 ___
 
 ### simhashClusterText
 
-▸ **simhashClusterText**<Item\>(`data`: [*LabeledTextDataset*](../interfaces/text.labeledtextdataset.md)<Item\>, `options?`: [*ClusterByHammingDistanceOptions*](../interfaces/hamming.clusterbyhammingdistanceoptions.md)<Item\>): *Promise*<[*ItemClustering*](cluster.md#itemclustering)\>
+▸ **simhashClusterText**<Item\>(`data`: *FingerprintedLabeledLexiconDataset*<Item\>, `options?`: [*SimhashClusterTextOptions*](../interfaces/text.simhashclustertextoptions.md)<Item\>): [*ItemClustering*](cluster.md#itemclustering)
 
 #### Type parameters
 
@@ -55,34 +53,9 @@ ___
 
 | Name | Type |
 | :------ | :------ |
-| `data` | [*LabeledTextDataset*](../interfaces/text.labeledtextdataset.md)<Item\> |
-| `options?` | [*ClusterByHammingDistanceOptions*](../interfaces/hamming.clusterbyhammingdistanceoptions.md)<Item\> |
+| `data` | *FingerprintedLabeledLexiconDataset*<Item\> |
+| `options?` | [*SimhashClusterTextOptions*](../interfaces/text.simhashclustertextoptions.md)<Item\> |
 
-**Returns:** *Promise*<[*ItemClustering*](cluster.md#itemclustering)\>
+**Returns:** [*ItemClustering*](cluster.md#itemclustering)
 
-Defined in: text.ts:35
-
-___
-
-### simhashWithIDFMap
-
-▸ **simhashWithIDFMap**<Item\>(`data`: [*TextDataset*](../interfaces/text.textdataset.md)<Item\>, `fingerprintBits?`: *number*, `filter?`: (`x`: Item) => *boolean*, `useTokenId?`: *boolean*): *Promise*<Item & HasFingerprint[]\>
-
-#### Type parameters
-
-| Name |
-| :------ |
-| `Item` |
-
-#### Parameters
-
-| Name | Type | Default value |
-| :------ | :------ | :------ |
-| `data` | [*TextDataset*](../interfaces/text.textdataset.md)<Item\> | - |
-| `fingerprintBits` | *number* | 64 |
-| `filter?` | (`x`: Item) => *boolean* | - |
-| `useTokenId` | *boolean* | true |
-
-**Returns:** *Promise*<Item & HasFingerprint[]\>
-
-Defined in: text.ts:16
+Defined in: [text.ts:12](https://github.com/wholebuzz/cluster/blob/master/src/text.ts#L12)

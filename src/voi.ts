@@ -1,4 +1,5 @@
-import { GetItemLabel, ItemClustering, ItemLabel, merge } from './cluster'
+import { GetItemLabel, ItemLabel } from '@wholebuzz/search/lib/types'
+import { ItemClustering, merge } from './cluster'
 
 // https://en.wikipedia.org/wiki/Variation_of_information
 // https://github.com/bjoern-andres/partition-comparison/blob/master/include/andres/partition-comparison.hxx

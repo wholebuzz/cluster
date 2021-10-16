@@ -24,7 +24,7 @@
 
 • **centrality**: *number*[]
 
-Defined in: outliers.ts:25
+Defined in: [outliers.ts:25](https://github.com/wholebuzz/cluster/blob/master/src/outliers.ts#L25)
 
 ___
 
@@ -32,7 +32,7 @@ ___
 
 • `Optional` **deltas**: *number*[]
 
-Defined in: outliers.ts:26
+Defined in: [outliers.ts:26](https://github.com/wholebuzz/cluster/blob/master/src/outliers.ts#L26)
 
 ___
 
@@ -40,4 +40,4 @@ ___
 
 • `Optional` **dim**: *number*[]
 
-Defined in: outliers.ts:27
+Defined in: [outliers.ts:27](https://github.com/wholebuzz/cluster/blob/master/src/outliers.ts#L27)

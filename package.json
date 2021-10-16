@@ -1,6 +1,6 @@
 {
   "name": "@wholebuzz/cluster",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "description": "SimHash text clustering with OutRank outlier removal and variation of information analysis.",
   "author": "wholebuzz",
   "license": "Apache-2.0",
@@ -25,7 +25,7 @@
     "lib/**/*"
   ],
   "dependencies": {
-    "@wholebuzz/search": "^0.0.4",
+    "@wholebuzz/search": "^0.0.7",
     "bigint-popcnt": "git+https://github.com/wholebuzz/bigint-popcnt.git",
     "compute-cosine-similarity": "^1.0.0",
     "cosine-similarity": "^1.0.1",

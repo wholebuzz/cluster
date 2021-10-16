@@ -1,12 +1,7 @@
 import { HashFunction } from '@wholebuzz/search/lib/tokens'
+import { FingerprintedLabeledDataset, GetItemLabel } from '@wholebuzz/search/lib/types'
 import { fastpopcnt } from 'bigint-popcnt'
-import {
-  dbscan,
-  FingerprintedLabeledDataset,
-  GetItemLabel,
-  ItemClustering,
-  ItemGraph,
-} from './cluster'
+import { dbscan, ItemClustering, ItemGraph } from './cluster'
 import { newPermutation } from './math'
 
 const zero = BigInt(0)
@@ -23,7 +18,7 @@ export interface ClusterByHammingDistanceOptions<Item> {
 }
 
 /**
- * Clusters [[`arr`]] by Hamming distance.
+ * Clusters [[FingerprintedLabeledDataset]] by Hamming distance.
  * References: [[1](https://dash.harvard.edu/bitstream/handle/1/38811431/GHOCHE-SENIORTHESIS-2016.pdf)]
  * @param news Array of articles with SimHash [[`fingerprint`]].
  * @optional options The [[ClusterOptions]] to apply.

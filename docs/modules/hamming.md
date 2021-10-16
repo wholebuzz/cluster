@@ -21,58 +21,58 @@
 
 ### addHammingNeighbors
 
-▸ **addHammingNeighbors**<Item\>(`output`: [*ItemGraph*](cluster.md#itemgraph)<Item\>, `data`: [*LabeledDataset*](../interfaces/cluster.labeleddataset.md)<Item\>, `threshhold`: *number*, `beamWidth`: *number*, `hammingDist`: (`x`: *bigint*, `y`: *bigint*) => *number*): [*ItemGraph*](cluster.md#itemgraph)<Item\>
+▸ **addHammingNeighbors**<Item\>(`output`: [*ItemGraph*](cluster.md#itemgraph)<Item\>, `data`: *FingerprintedLabeledDataset*<Item\>, `threshhold`: *number*, `beamWidth`: *number*, `hammingDist`: (`x`: *bigint*, `y`: *bigint*) => *number*): [*ItemGraph*](cluster.md#itemgraph)<Item\>
 
 Finds approximate nearest neighbors by Hamming distance.
 References: [[1](https://dash.harvard.edu/bitstream/handle/1/38811431/GHOCHE-SENIORTHESIS-2016.pdf)]
 
 #### Type parameters
 
-| Name | Type |
-| :------ | :------ |
-| `Item` | HasFingerprint |
+| Name |
+| :------ |
+| `Item` |
 
 #### Parameters
 
 | Name | Type | Description |
 | :------ | :------ | :------ |
 | `output` | [*ItemGraph*](cluster.md#itemgraph)<Item\> | - |
-| `data` | [*LabeledDataset*](../interfaces/cluster.labeleddataset.md)<Item\> | - |
+| `data` | *FingerprintedLabeledDataset*<Item\> | - |
 | `threshhold` | *number* | Maximum Hamming distance for two articles to be considered neighbors. |
 | `beamWidth` | *number* | Number of sort-order adjacent points to check for nearness. |
 | `hammingDist` | (`x`: *bigint*, `y`: *bigint*) => *number* | - |
 
 **Returns:** [*ItemGraph*](cluster.md#itemgraph)<Item\>
 
-Defined in: hamming.ts:64
+Defined in: [hamming.ts:64](https://github.com/wholebuzz/cluster/blob/master/src/hamming.ts#L64)
 
 ___
 
 ### clusterByHammingDistance
 
-▸ **clusterByHammingDistance**<Item\>(`data`: [*LabeledDataset*](../interfaces/cluster.labeleddataset.md)<Item\>, `options?`: [*ClusterByHammingDistanceOptions*](../interfaces/hamming.clusterbyhammingdistanceoptions.md)<Item\>): *Promise*<[*ItemClustering*](cluster.md#itemclustering)\>
+▸ **clusterByHammingDistance**<Item\>(`data`: *FingerprintedLabeledDataset*<Item\>, `options?`: [*ClusterByHammingDistanceOptions*](../interfaces/hamming.clusterbyhammingdistanceoptions.md)<Item\>): [*ItemClustering*](cluster.md#itemclustering)
 
-Clusters [[`arr`]] by Hamming distance.
+Clusters [[FingerprintedLabeledDataset]] by Hamming distance.
 References: [[1](https://dash.harvard.edu/bitstream/handle/1/38811431/GHOCHE-SENIORTHESIS-2016.pdf)]
 
 **`optional`** options The [[ClusterOptions]] to apply.
 
 #### Type parameters
 
-| Name | Type |
-| :------ | :------ |
-| `Item` | HasFingerprint |
+| Name |
+| :------ |
+| `Item` |
 
 #### Parameters
 
 | Name | Type |
 | :------ | :------ |
-| `data` | [*LabeledDataset*](../interfaces/cluster.labeleddataset.md)<Item\> |
+| `data` | *FingerprintedLabeledDataset*<Item\> |
 | `options?` | [*ClusterByHammingDistanceOptions*](../interfaces/hamming.clusterbyhammingdistanceoptions.md)<Item\> |
 
-**Returns:** *Promise*<[*ItemClustering*](cluster.md#itemclustering)\>
+**Returns:** [*ItemClustering*](cluster.md#itemclustering)
 
-Defined in: hamming.ts:26
+Defined in: [hamming.ts:26](https://github.com/wholebuzz/cluster/blob/master/src/hamming.ts#L26)
 
 ___
 
@@ -92,7 +92,7 @@ References: [[1](https://en.wikipedia.org/wiki/Hamming_distance)]
 
 **Returns:** *number*
 
-Defined in: hamming.ts:94
+Defined in: [hamming.ts:94](https://github.com/wholebuzz/cluster/blob/master/src/hamming.ts#L94)
 
 ___
 
@@ -112,7 +112,7 @@ References: [[1](https://en.wikipedia.org/wiki/Hamming_distance)]
 
 **Returns:** (`x`: *bigint*, `y`: *bigint*) => *number*
 
-Defined in: hamming.ts:116
+Defined in: [hamming.ts:116](https://github.com/wholebuzz/cluster/blob/master/src/hamming.ts#L116)
 
 ___
 
@@ -131,7 +131,7 @@ References: [[1](https://en.wikipedia.org/wiki/Hamming_weight)]
 
 **Returns:** *number*
 
-Defined in: hamming.ts:103
+Defined in: [hamming.ts:103](https://github.com/wholebuzz/cluster/blob/master/src/hamming.ts#L103)
 
 ___
 
@@ -150,4 +150,4 @@ Reorders the bits in the input according to the supplied permutation.
 
 **Returns:** *bigint*
 
-Defined in: hamming.ts:128
+Defined in: [hamming.ts:128](https://github.com/wholebuzz/cluster/blob/master/src/hamming.ts#L128)

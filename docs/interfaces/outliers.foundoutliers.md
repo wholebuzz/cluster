@@ -27,7 +27,7 @@
 
 Inherited from: [FoundCentrality](outliers.foundcentrality.md).[centrality](outliers.foundcentrality.md#centrality)
 
-Defined in: outliers.ts:25
+Defined in: [outliers.ts:25](https://github.com/wholebuzz/cluster/blob/master/src/outliers.ts#L25)
 
 ___
 
@@ -37,7 +37,7 @@ ___
 
 Inherited from: [FoundCentrality](outliers.foundcentrality.md).[deltas](outliers.foundcentrality.md#deltas)
 
-Defined in: outliers.ts:26
+Defined in: [outliers.ts:26](https://github.com/wholebuzz/cluster/blob/master/src/outliers.ts#L26)
 
 ___
 
@@ -47,7 +47,7 @@ ___
 
 Inherited from: [FoundCentrality](outliers.foundcentrality.md).[dim](outliers.foundcentrality.md#dim)
 
-Defined in: outliers.ts:27
+Defined in: [outliers.ts:27](https://github.com/wholebuzz/cluster/blob/master/src/outliers.ts#L27)
 
 ___
 
@@ -55,4 +55,4 @@ ___
 
 • **outliers**: *boolean*[]
 
-Defined in: outliers.ts:31
+Defined in: [outliers.ts:31](https://github.com/wholebuzz/cluster/blob/master/src/outliers.ts#L31)

@@ -36,7 +36,7 @@
 
 **Returns:** [*FoundCentrality*](../interfaces/outliers.foundcentrality.md)
 
-Defined in: outliers.ts:47
+Defined in: [outliers.ts:47](https://github.com/wholebuzz/cluster/blob/master/src/outliers.ts#L47)
 
 ___
 
@@ -56,7 +56,7 @@ Finds outliers by cosine similarity with embedding vector mean or OutRank.
 
 **Returns:** [*FoundOutliers*](../interfaces/outliers.foundoutliers.md)
 
-Defined in: outliers.ts:37
+Defined in: [outliers.ts:37](https://github.com/wholebuzz/cluster/blob/master/src/outliers.ts#L37)
 
 ___
 
@@ -74,4 +74,4 @@ ___
 
 **Returns:** *boolean*[]
 
-Defined in: outliers.ts:71
+Defined in: [outliers.ts:71](https://github.com/wholebuzz/cluster/blob/master/src/outliers.ts#L71)

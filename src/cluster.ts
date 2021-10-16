@@ -1,37 +1,18 @@
+import { GetItemLabel, ItemLabel, LabeledDataset } from '@wholebuzz/search/lib/types'
+
 export const merge = require('@wholebuzz/binary-merge')
 export const intersect = require('@wholebuzz/binary-merge/intersect')
 export const overlaps = require('@wholebuzz/binary-merge/overlaps')
 
-export type ItemLabel = string
-export type ItemEmbedding = number[]
-export type ItemFingerprint = bigint
 export type ClusterId = number
 export type Cluster<Item> = Item[]
 export type Clusters<Item> = Array<Cluster<Item>>
 export type ItemClustering = Record<ItemLabel, ClusterId>
 export type ItemGraph<Item> = Record<ItemLabel, Set<Item>>
-export type GetItemLabel<Item> = (item: Item) => ItemLabel
-export type GetItemEmbedding<Item> = (item: Item) => ItemEmbedding
-export type SetItemEmbedding<Item> = (item: Item, embedding?: ItemEmbedding) => Item
-export type GetItemFingerprint<Item> = (item: Item) => ItemFingerprint
-export type SetItemFingerprint<Item> = (item: Item, fingerprint?: ItemFingerprint) => Item
 
-export interface LabeledDataset<Item> {
-  items: Item[]
-  getItemLabel: GetItemLabel<Item>
-  getItemDebug?: (item: Item) => string
-}
-
-export interface EmbeddedLabeledDataset<Item> extends LabeledDataset<Item> {
-  getItemEmbedding: GetItemEmbedding<Item>
-  setItemEmbedding: SetItemEmbedding<Item>
-}
-
-export interface FingerprintedLabeledDataset<Item> extends LabeledDataset<Item> {
-  getItemFingerprint: GetItemFingerprint<Item>
-  setItemFingerprint: SetItemFingerprint<Item>
-}
-
+/**
+ * Splits [LabeledDataset] items into [Clusters] according to clustering.
+ */
 export function clustersFromLabels<Item>(
   data: LabeledDataset<Item>,
   clustering: ItemClustering,

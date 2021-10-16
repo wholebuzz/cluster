@@ -30,7 +30,7 @@
 
 **Returns:** *boolean*
 
-Defined in: outliers.ts:20
+Defined in: [outliers.ts:20](https://github.com/wholebuzz/cluster/blob/master/src/outliers.ts#L20)
 
 ___
 
@@ -38,4 +38,4 @@ ___
 
 • `Optional` **iqrOutliersThreshold**: *number*
 
-Defined in: outliers.ts:21
+Defined in: [outliers.ts:21](https://github.com/wholebuzz/cluster/blob/master/src/outliers.ts#L21)

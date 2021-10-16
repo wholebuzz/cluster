@@ -768,10 +768,10 @@
     yargs "^17.1.1"
     zlib "^1.0.5"
 
-"@wholebuzz/search@^0.0.4":
-  version "0.0.4"
-  resolved "https://registry.yarnpkg.com/@wholebuzz/search/-/search-0.0.4.tgz#d834461cf92e75fddc8ed161ebd9d8caeb2af8f5"
-  integrity sha512-L0qD3c9aANbhaRueBYtiTQIhyhNvJ3et57Z6lS7L2DsjKsboYOO2eaNicXU4yfRwnlIXOmcKQFb7z+q4Zh193Q==
+"@wholebuzz/search@^0.0.7":
+  version "0.0.7"
+  resolved "https://registry.yarnpkg.com/@wholebuzz/search/-/search-0.0.7.tgz#0e568dbd74ea1a66513c242ad99fee55b2f26e2b"
+  integrity sha512-GlrezxQqZ+EFDbHXAonZob8hiPdEKRcF2Lm9lwzkwT6dfPScTAl5ISzFsKlvB7HrNg6CG0l7wBtbG/GWa3H87A==
   dependencies:
     "@sindresorhus/fnv1a" "^2.0.1"
     "@wholebuzz/binary-merge" "^0.0.1"

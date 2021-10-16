@@ -4,19 +4,13 @@
 
 ## Table of contents
 
-### Interfaces
-
-- [LabeledDataset](../interfaces/cluster.labeleddataset.md)
-
 ### Type aliases
 
 - [Cluster](cluster.md#cluster)
 - [ClusterId](cluster.md#clusterid)
 - [Clusters](cluster.md#clusters)
-- [GetItemLabel](cluster.md#getitemlabel)
 - [ItemClustering](cluster.md#itemclustering)
 - [ItemGraph](cluster.md#itemgraph)
-- [ItemLabel](cluster.md#itemlabel)
 
 ### Variables
 
@@ -26,6 +20,7 @@
 
 ### Functions
 
+- [clustersFromLabels](cluster.md#clustersfromlabels)
 - [dbclum](cluster.md#dbclum)
 - [dbclumscan](cluster.md#dbclumscan)
 - [dbscan](cluster.md#dbscan)
@@ -43,7 +38,7 @@
 | :------ |
 | `Item` |
 
-Defined in: cluster.ts:7
+Defined in: [cluster.ts:8](https://github.com/wholebuzz/cluster/blob/master/src/cluster.ts#L8)
 
 ___
 
@@ -51,7 +46,7 @@ ___
 
 Ƭ **ClusterId**: *number*
 
-Defined in: cluster.ts:6
+Defined in: [cluster.ts:7](https://github.com/wholebuzz/cluster/blob/master/src/cluster.ts#L7)
 
 ___
 
@@ -65,47 +60,21 @@ ___
 | :------ |
 | `Item` |
 
-Defined in: cluster.ts:8
-
-___
-
-### GetItemLabel
-
-Ƭ **GetItemLabel**<Item\>: (`item`: Item) => [*ItemLabel*](cluster.md#itemlabel)
-
-#### Type parameters
-
-| Name |
-| :------ |
-| `Item` |
-
-#### Type declaration
-
-▸ (`item`: Item): [*ItemLabel*](cluster.md#itemlabel)
-
-#### Parameters
-
-| Name | Type |
-| :------ | :------ |
-| `item` | Item |
-
-**Returns:** [*ItemLabel*](cluster.md#itemlabel)
-
-Defined in: cluster.ts:11
+Defined in: [cluster.ts:9](https://github.com/wholebuzz/cluster/blob/master/src/cluster.ts#L9)
 
 ___
 
 ### ItemClustering
 
-Ƭ **ItemClustering**: *Record*<[*ItemLabel*](cluster.md#itemlabel), [*ClusterId*](cluster.md#clusterid)\>
+Ƭ **ItemClustering**: *Record*<ItemLabel, [*ClusterId*](cluster.md#clusterid)\>
 
-Defined in: cluster.ts:9
+Defined in: [cluster.ts:10](https://github.com/wholebuzz/cluster/blob/master/src/cluster.ts#L10)
 
 ___
 
 ### ItemGraph
 
-Ƭ **ItemGraph**<Item\>: *Record*<[*ItemLabel*](cluster.md#itemlabel), Set<Item\>\>
+Ƭ **ItemGraph**<Item\>: *Record*<ItemLabel, Set<Item\>\>
 
 #### Type parameters
 
@@ -113,15 +82,7 @@ ___
 | :------ |
 | `Item` |
 
-Defined in: cluster.ts:10
-
-___
-
-### ItemLabel
-
-Ƭ **ItemLabel**: *string*
-
-Defined in: cluster.ts:5
+Defined in: [cluster.ts:11](https://github.com/wholebuzz/cluster/blob/master/src/cluster.ts#L11)
 
 ## Variables
 
@@ -129,7 +90,7 @@ Defined in: cluster.ts:5
 
 • `Const` **intersect**: *any*
 
-Defined in: cluster.ts:2
+Defined in: [cluster.ts:4](https://github.com/wholebuzz/cluster/blob/master/src/cluster.ts#L4)
 
 ___
 
@@ -137,7 +98,7 @@ ___
 
 • `Const` **merge**: *any*
 
-Defined in: cluster.ts:1
+Defined in: [cluster.ts:3](https://github.com/wholebuzz/cluster/blob/master/src/cluster.ts#L3)
 
 ___
 
@@ -145,13 +106,39 @@ ___
 
 • `Const` **overlaps**: *any*
 
-Defined in: cluster.ts:3
+Defined in: [cluster.ts:5](https://github.com/wholebuzz/cluster/blob/master/src/cluster.ts#L5)
 
 ## Functions
 
+### clustersFromLabels
+
+▸ **clustersFromLabels**<Item\>(`data`: *LabeledDataset*<Item\>, `clustering`: [*ItemClustering*](cluster.md#itemclustering), `itemFilter?`: (`item`: Item) => Item \| ``null``): [*Clusters*](cluster.md#clusters)<Item\>
+
+Splits [LabeledDataset] items into [Clusters] according to clustering.
+
+#### Type parameters
+
+| Name |
+| :------ |
+| `Item` |
+
+#### Parameters
+
+| Name | Type |
+| :------ | :------ |
+| `data` | *LabeledDataset*<Item\> |
+| `clustering` | [*ItemClustering*](cluster.md#itemclustering) |
+| `itemFilter?` | (`item`: Item) => Item \| ``null`` |
+
+**Returns:** [*Clusters*](cluster.md#clusters)<Item\>
+
+Defined in: [cluster.ts:16](https://github.com/wholebuzz/cluster/blob/master/src/cluster.ts#L16)
+
+___
+
 ### dbclum
 
-▸ **dbclum**<Item\>(`graph`: [*ItemGraph*](cluster.md#itemgraph)<Item\>, `getItemLabel`: [*GetItemLabel*](cluster.md#getitemlabel)<Item\>, `shouldMerge`: (`C1`: Item[], `C2`: Item[], `graph`: [*ItemGraph*](cluster.md#itemgraph)<Item\>, `getItemLabel`: [*GetItemLabel*](cluster.md#getitemlabel)<Item\>) => ``true``, `mostBelongs`: (`P`: Item, `C1`: Item[], `C2`: Item[], `graph`: [*ItemGraph*](cluster.md#itemgraph)<Item\>, `getItemLabel`: [*GetItemLabel*](cluster.md#getitemlabel)<Item\>) => ``true``, `minPoints?`: *number*): [*ItemClustering*](cluster.md#itemclustering)
+▸ **dbclum**<Item\>(`graph`: [*ItemGraph*](cluster.md#itemgraph)<Item\>, `getItemLabel`: *GetItemLabel*<Item\>, `shouldMerge`: (`C1`: Item[], `C2`: Item[], `graph`: [*ItemGraph*](cluster.md#itemgraph)<Item\>, `getItemLabel`: *GetItemLabel*<Item\>) => ``true``, `mostBelongs`: (`P`: Item, `C1`: Item[], `C2`: Item[], `graph`: [*ItemGraph*](cluster.md#itemgraph)<Item\>, `getItemLabel`: *GetItemLabel*<Item\>) => ``true``, `minPoints?`: *number*): [*ItemClustering*](cluster.md#itemclustering)
 
 DBCLUM: Density-based Clustering
 References: [[1](https://citeseerx.ist.psu.edu/viewdoc/download?doi=10.1.1.402.6999)]
@@ -169,22 +156,22 @@ References: [[1](https://citeseerx.ist.psu.edu/viewdoc/download?doi=10.1.1.402.6
 | Name | Type | Default value | Description |
 | :------ | :------ | :------ | :------ |
 | `graph` | [*ItemGraph*](cluster.md#itemgraph)<Item\> | - | Record mapping [[News]] [[`guid`]] to neighbors. |
-| `getItemLabel` | [*GetItemLabel*](cluster.md#getitemlabel)<Item\> | - | - |
-| `shouldMerge` | (`C1`: Item[], `C2`: Item[], `graph`: [*ItemGraph*](cluster.md#itemgraph)<Item\>, `getItemLabel`: [*GetItemLabel*](cluster.md#getitemlabel)<Item\>) => ``true`` | - | - |
-| `mostBelongs` | (`P`: Item, `C1`: Item[], `C2`: Item[], `graph`: [*ItemGraph*](cluster.md#itemgraph)<Item\>, `getItemLabel`: [*GetItemLabel*](cluster.md#getitemlabel)<Item\>) => ``true`` | - | - |
+| `getItemLabel` | *GetItemLabel*<Item\> | - | - |
+| `shouldMerge` | (`C1`: Item[], `C2`: Item[], `graph`: [*ItemGraph*](cluster.md#itemgraph)<Item\>, `getItemLabel`: *GetItemLabel*<Item\>) => ``true`` | - | - |
+| `mostBelongs` | (`P`: Item, `C1`: Item[], `C2`: Item[], `graph`: [*ItemGraph*](cluster.md#itemgraph)<Item\>, `getItemLabel`: *GetItemLabel*<Item\>) => ``true`` | - | - |
 | `minPoints` | *number* | 2 | - |
 
 **Returns:** [*ItemClustering*](cluster.md#itemclustering)
 
 label Record mapping [[News]] [[`guid]] to cluster label.
 
-Defined in: cluster.ts:99
+Defined in: [cluster.ts:113](https://github.com/wholebuzz/cluster/blob/master/src/cluster.ts#L113)
 
 ___
 
 ### dbclumscan
 
-▸ **dbclumscan**<Item\>(`graph`: [*ItemGraph*](cluster.md#itemgraph)<Item\>, `getItemLabel`: [*GetItemLabel*](cluster.md#getitemlabel)<Item\>, `minPoints?`: *number*): [*ItemClustering*](cluster.md#itemclustering)
+▸ **dbclumscan**<Item\>(`graph`: [*ItemGraph*](cluster.md#itemgraph)<Item\>, `getItemLabel`: *GetItemLabel*<Item\>, `minPoints?`: *number*): [*ItemClustering*](cluster.md#itemclustering)
 
 #### Type parameters
 
@@ -197,18 +184,18 @@ ___
 | Name | Type | Default value |
 | :------ | :------ | :------ |
 | `graph` | [*ItemGraph*](cluster.md#itemgraph)<Item\> | - |
-| `getItemLabel` | [*GetItemLabel*](cluster.md#getitemlabel)<Item\> | - |
+| `getItemLabel` | *GetItemLabel*<Item\> | - |
 | `minPoints` | *number* | 2 |
 
 **Returns:** [*ItemClustering*](cluster.md#itemclustering)
 
-Defined in: cluster.ts:78
+Defined in: [cluster.ts:92](https://github.com/wholebuzz/cluster/blob/master/src/cluster.ts#L92)
 
 ___
 
 ### dbscan
 
-▸ **dbscan**<Item\>(`graph`: [*ItemGraph*](cluster.md#itemgraph)<Item\>, `getItemLabel`: [*GetItemLabel*](cluster.md#getitemlabel)<Item\>, `minPoints?`: *number*): [*ItemClustering*](cluster.md#itemclustering)
+▸ **dbscan**<Item\>(`graph`: [*ItemGraph*](cluster.md#itemgraph)<Item\>, `getItemLabel`: *GetItemLabel*<Item\>, `minPoints?`: *number*): [*ItemClustering*](cluster.md#itemclustering)
 
 Density-based spatial clustering of applications with noise.
 References: [[1](https://en.wikipedia.org/wiki/DBSCAN)]
@@ -226,20 +213,20 @@ References: [[1](https://en.wikipedia.org/wiki/DBSCAN)]
 | Name | Type | Default value | Description |
 | :------ | :------ | :------ | :------ |
 | `graph` | [*ItemGraph*](cluster.md#itemgraph)<Item\> | - | Mapping of ItemLabel to nearest neighbor Items. |
-| `getItemLabel` | [*GetItemLabel*](cluster.md#getitemlabel)<Item\> | - | - |
+| `getItemLabel` | *GetItemLabel*<Item\> | - | - |
 | `minPoints` | *number* | 2 | - |
 
 **Returns:** [*ItemClustering*](cluster.md#itemclustering)
 
 label Mapping of ItemLabel to ClusterId.
 
-Defined in: cluster.ts:40
+Defined in: [cluster.ts:54](https://github.com/wholebuzz/cluster/blob/master/src/cluster.ts#L54)
 
 ___
 
 ### labelsFromClusters
 
-▸ **labelsFromClusters**<Item\>(`clusters`: [*Clusters*](cluster.md#clusters)<Item\>, `getItemLabel`: [*GetItemLabel*](cluster.md#getitemlabel)<Item\>): [*ItemClustering*](cluster.md#itemclustering)
+▸ **labelsFromClusters**<Item\>(`clusters`: [*Clusters*](cluster.md#clusters)<Item\>, `getItemLabel`: *GetItemLabel*<Item\>): [*ItemClustering*](cluster.md#itemclustering)
 
 Builds an ItemLabel to ClusterId map from existing Clusters.
 
@@ -254,8 +241,8 @@ Builds an ItemLabel to ClusterId map from existing Clusters.
 | Name | Type |
 | :------ | :------ |
 | `clusters` | [*Clusters*](cluster.md#clusters)<Item\> |
-| `getItemLabel` | [*GetItemLabel*](cluster.md#getitemlabel)<Item\> |
+| `getItemLabel` | *GetItemLabel*<Item\> |
 
 **Returns:** [*ItemClustering*](cluster.md#itemclustering)
 
-Defined in: cluster.ts:22
+Defined in: [cluster.ts:36](https://github.com/wholebuzz/cluster/blob/master/src/cluster.ts#L36)

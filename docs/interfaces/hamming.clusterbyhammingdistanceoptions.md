@@ -10,6 +10,12 @@
 | :------ |
 | `Item` |
 
+## Hierarchy
+
+- **ClusterByHammingDistanceOptions**
+
+  ↳ [*SimhashClusterTextOptions*](text.simhashclustertextoptions.md)
+
 ## Table of contents
 
 ### Properties
@@ -17,7 +23,7 @@
 - [beamWidth](hamming.clusterbyhammingdistanceoptions.md#beamwidth)
 - [clusterFn](hamming.clusterbyhammingdistanceoptions.md#clusterfn)
 - [fingerprintBits](hamming.clusterbyhammingdistanceoptions.md#fingerprintbits)
-- [nearnessThreshhold](hamming.clusterbyhammingdistanceoptions.md#nearnessthreshhold)
+- [nearnessThreshold](hamming.clusterbyhammingdistanceoptions.md#nearnessthreshold)
 - [rehash](hamming.clusterbyhammingdistanceoptions.md#rehash)
 - [rehasherFn](hamming.clusterbyhammingdistanceoptions.md#rehasherfn)
 - [rounds](hamming.clusterbyhammingdistanceoptions.md#rounds)
@@ -28,28 +34,28 @@
 
 • `Optional` **beamWidth**: *number*
 
-Defined in: hamming.ts:11
+Defined in: [hamming.ts:11](https://github.com/wholebuzz/cluster/blob/master/src/hamming.ts#L11)
 
 ___
 
 ### clusterFn
 
-• `Optional` **clusterFn**: (`graph`: [*ItemGraph*](../modules/cluster.md#itemgraph)<Item\>, `getItemLabel`: [*GetItemLabel*](../modules/cluster.md#getitemlabel)<Item\>) => *Record*<string, number\>
+• `Optional` **clusterFn**: (`graph`: [*ItemGraph*](../modules/cluster.md#itemgraph)<Item\>, `getItemLabel`: *GetItemLabel*<Item\>) => [*ItemClustering*](../modules/cluster.md#itemclustering)
 
 #### Type declaration
 
-▸ (`graph`: [*ItemGraph*](../modules/cluster.md#itemgraph)<Item\>, `getItemLabel`: [*GetItemLabel*](../modules/cluster.md#getitemlabel)<Item\>): *Record*<string, number\>
+▸ (`graph`: [*ItemGraph*](../modules/cluster.md#itemgraph)<Item\>, `getItemLabel`: *GetItemLabel*<Item\>): [*ItemClustering*](../modules/cluster.md#itemclustering)
 
 #### Parameters
 
 | Name | Type |
 | :------ | :------ |
 | `graph` | [*ItemGraph*](../modules/cluster.md#itemgraph)<Item\> |
-| `getItemLabel` | [*GetItemLabel*](../modules/cluster.md#getitemlabel)<Item\> |
+| `getItemLabel` | *GetItemLabel*<Item\> |
 
-**Returns:** *Record*<string, number\>
+**Returns:** [*ItemClustering*](../modules/cluster.md#itemclustering)
 
-Defined in: hamming.ts:17
+Defined in: [hamming.ts:17](https://github.com/wholebuzz/cluster/blob/master/src/hamming.ts#L17)
 
 ___
 
@@ -57,15 +63,15 @@ ___
 
 • `Optional` **fingerprintBits**: *number*
 
-Defined in: hamming.ts:12
+Defined in: [hamming.ts:12](https://github.com/wholebuzz/cluster/blob/master/src/hamming.ts#L12)
 
 ___
 
-### nearnessThreshhold
+### nearnessThreshold
 
-• `Optional` **nearnessThreshhold**: *number*
+• `Optional` **nearnessThreshold**: *number*
 
-Defined in: hamming.ts:13
+Defined in: [hamming.ts:13](https://github.com/wholebuzz/cluster/blob/master/src/hamming.ts#L13)
 
 ___
 
@@ -73,7 +79,7 @@ ___
 
 • `Optional` **rehash**: HashFunction[]
 
-Defined in: hamming.ts:15
+Defined in: [hamming.ts:15](https://github.com/wholebuzz/cluster/blob/master/src/hamming.ts#L15)
 
 ___
 
@@ -94,7 +100,7 @@ ___
 
 **Returns:** *bigint*
 
-Defined in: hamming.ts:16
+Defined in: [hamming.ts:16](https://github.com/wholebuzz/cluster/blob/master/src/hamming.ts#L16)
 
 ___
 
@@ -102,4 +108,4 @@ ___
 
 • `Optional` **rounds**: *number*
 
-Defined in: hamming.ts:14
+Defined in: [hamming.ts:14](https://github.com/wholebuzz/cluster/blob/master/src/hamming.ts#L14)

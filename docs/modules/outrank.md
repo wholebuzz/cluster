@@ -30,4 +30,4 @@ https://www.cse.msu.edu/~ptan/papers/IJAIT.pdf
 
 **Returns:** [*OutRankResults*](../interfaces/outrank.outrankresults.md)
 
-Defined in: outrank.ts:10
+Defined in: [outrank.ts:10](https://github.com/wholebuzz/cluster/blob/master/src/outrank.ts#L10)

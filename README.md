@@ -23,7 +23,7 @@ const dataset: FingerprintedLabeledTextDataset = {
     else x.fingerprint = fp
     return x
   }
-  idf: newIDFMap(items, getItemText, searchConfig),
+  idf: newLexicon({ items, getItemText }, searchConfig),
 }
 const clusters: Event[][] = clustersFromLabels(dataset, clusterText(dataset), setFingerprint)
 for (let i = 0; i < clusters.length; i++) {

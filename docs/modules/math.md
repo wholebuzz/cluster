@@ -24,7 +24,7 @@
 
 • `Const` **objectCosineSimilarity**: *any*
 
-Defined in: math.ts:2
+Defined in: [math.ts:2](https://github.com/wholebuzz/cluster/blob/master/src/math.ts#L2)
 
 ___
 
@@ -32,7 +32,7 @@ ___
 
 • `Const` **vectorCosineSimilarity**: *any*
 
-Defined in: math.ts:1
+Defined in: [math.ts:1](https://github.com/wholebuzz/cluster/blob/master/src/math.ts#L1)
 
 ## Functions
 
@@ -48,7 +48,7 @@ Defined in: math.ts:1
 
 **Returns:** arr is number[]
 
-Defined in: math.ts:4
+Defined in: [math.ts:4](https://github.com/wholebuzz/cluster/blob/master/src/math.ts#L4)
 
 ___
 
@@ -70,7 +70,7 @@ References: [[1](https://en.wikipedia.org/wiki/Mahalanobis_distance)]
 
 **Returns:** *number*
 
-Defined in: math.ts:34
+Defined in: [math.ts:34](https://github.com/wholebuzz/cluster/blob/master/src/math.ts#L34)
 
 ___
 
@@ -86,7 +86,7 @@ ___
 
 **Returns:** *number*
 
-Defined in: math.ts:8
+Defined in: [math.ts:8](https://github.com/wholebuzz/cluster/blob/master/src/math.ts#L8)
 
 ___
 
@@ -104,7 +104,7 @@ Creates a random permutation of the integers from 0 to d - 1.
 
 **Returns:** *bigint*[]
 
-Defined in: math.ts:47
+Defined in: [math.ts:47](https://github.com/wholebuzz/cluster/blob/master/src/math.ts#L47)
 
 ___
 
@@ -120,7 +120,7 @@ ___
 
 **Returns:** *Record*<string, number\>
 
-Defined in: math.ts:19
+Defined in: [math.ts:19](https://github.com/wholebuzz/cluster/blob/master/src/math.ts#L19)
 
 ___
 
@@ -136,4 +136,4 @@ ___
 
 **Returns:** *number*[]
 
-Defined in: math.ts:12
+Defined in: [math.ts:12](https://github.com/wholebuzz/cluster/blob/master/src/math.ts#L12)

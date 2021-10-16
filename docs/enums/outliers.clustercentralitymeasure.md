@@ -17,7 +17,7 @@
 
 • **ClusterMeanCosineSimilarity**: = 0
 
-Defined in: outliers.ts:9
+Defined in: [outliers.ts:9](https://github.com/wholebuzz/cluster/blob/master/src/outliers.ts#L9)
 
 ___
 
@@ -25,4 +25,4 @@ ___
 
 • **OutRank**: = 1
 
-Defined in: outliers.ts:10
+Defined in: [outliers.ts:10](https://github.com/wholebuzz/cluster/blob/master/src/outliers.ts#L10)
