@@ -1,6 +1,6 @@
 import { getTFIDF, simhashIDF, tokenIdHash } from '@wholebuzz/search/lib/idf'
 import { fnv1aHash, HashFunction } from '@wholebuzz/search/lib/tokens'
-import { FingerprintedLabeledLexiconDataset, HasFingerprint, LexiconDataset } from '@wholebuzz/search/lib/types'
+import { FingerprintedLabeledLexiconDataset, LexiconDataset } from '@wholebuzz/search/lib/types'
 import { ItemClustering } from './cluster'
 import { clusterByHammingDistance, ClusterByHammingDistanceOptions } from './hamming'
 import { ClusterCentralityMeasure, findOutliers, FindOutliersMethod } from './outliers'
@@ -9,7 +9,7 @@ export interface SimhashClusterTextOptions<Item> extends ClusterByHammingDistanc
   useExistingFingerprint?: boolean
 }
 
-export function simhashClusterText<Item extends HasFingerprint>(
+export function simhashClusterText<Item>(
   data: FingerprintedLabeledLexiconDataset<Item>,
   options?: SimhashClusterTextOptions<Item>
 ): ItemClustering {

@@ -8,6 +8,11 @@
 
 - [ClusterByHammingDistanceOptions](../interfaces/hamming.clusterbyhammingdistanceoptions.md)
 
+### Variables
+
+- [one](hamming.md#one)
+- [zero](hamming.md#zero)
+
 ### Functions
 
 - [addHammingNeighbors](hamming.md#addhammingneighbors)
@@ -16,6 +21,22 @@
 - [hammingDistanceConstantTimeFunction](hamming.md#hammingdistanceconstanttimefunction)
 - [hammingWeight](hamming.md#hammingweight)
 - [permuteBits](hamming.md#permutebits)
+
+## Variables
+
+### one
+
+• `Const` **one**: *bigint*
+
+Defined in: [hamming.ts:8](https://github.com/wholebuzz/cluster/blob/master/src/hamming.ts#L8)
+
+___
+
+### zero
+
+• `Const` **zero**: *bigint*
+
+Defined in: [hamming.ts:7](https://github.com/wholebuzz/cluster/blob/master/src/hamming.ts#L7)
 
 ## Functions
 

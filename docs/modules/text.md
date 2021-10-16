@@ -45,9 +45,9 @@ ___
 
 #### Type parameters
 
-| Name | Type |
-| :------ | :------ |
-| `Item` | HasFingerprint |
+| Name |
+| :------ |
+| `Item` |
 
 #### Parameters
 

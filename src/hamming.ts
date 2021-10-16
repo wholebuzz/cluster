@@ -4,8 +4,8 @@ import { fastpopcnt } from 'bigint-popcnt'
 import { dbscan, ItemClustering, ItemGraph } from './cluster'
 import { newPermutation } from './math'
 
-const zero = BigInt(0)
-const one = BigInt(1)
+export const zero = BigInt(0)
+export const one = BigInt(1)
 
 export interface ClusterByHammingDistanceOptions<Item> {
   beamWidth?: number
