@@ -1,6 +1,20 @@
 # @wholebuzz/cluster
 
-SimHash text clustering with OutRank outlier removal and variation of information analysis.
+SimHash text clustering with OutRank outlier removal and Variation of Information analysis.
+
+- [newLexicon()](https://github.com/wholebuzz/search/blob/master/docs/modules/lexicon.md#newlexicon) builds a [TFIDF](https://en.wikipedia.org/wiki/Tf%E2%80%93idf) lexicon used to weight [SimHash](https://en.wikipedia.org/wiki/SimHash) fingerprints.
+
+- [simhashClusterText](docs/modules/text.md#simhashclustertext) performs `rounds` of [Beam Search](https://en.wikipedia.org/wiki/Beam_search) to find `fingerprint` neighborhoods by [Hamming distance](https://en.wikipedia.org/wiki/Hamming_distance). Neighbors are clustered with [DBSCAN](https://en.wikipedia.org/wiki/DBSCAN).
+
+- [findOutliersByTFIDFCentrality](docs/modules/text.md#findoutliersbytfidfcentrality) finds outliers with [OutRank](https://www.cse.msu.edu/~ptan/papers/IJAIT.pdf) as the [ClusterCentralityMeasure](https://github.com/wholebuzz/cluster/blob/master/docs/enums/outliers.clustercentralitymeasure.md). Outliers are removed by [InterquantileRange](docs/enums/outliers.findoutliersmethod.md#interquantilerange) or [PeirceCriterion](docs/enums/outliers.findoutliersmethod.md#peircecriterion).
+
+- [mapClusters](docs/modules/mapping.md#mapclusters) analyzes or carries forward previous clusters by [Variation of Information](https://en.wikipedia.org/wiki/Variation_of_information).
+
+## References
+
+- [[1](https://dash.harvard.edu/bitstream/handle/1/38811431/GHOCHE-SENIORTHESIS-2016.pdf)] Real-Time Tf-Idf Clustering Using Simhash, Approximate Nearest Neighbors, and DBSCAN
+- [[2](https://www.cse.msu.edu/~ptan/papers/IJAIT.pdf)] OutRank: A GRAPH-BASED OUTLIER DETECTION FRAMEWORK USING RANDOM WALK
+- [[3](https://en.wikipedia.org/wiki/DBSCAN)] Density-based spatial clustering of applications with noise
 
 ## Example
 
@@ -14,12 +28,16 @@ import { newLexicon } from '@wholebuzz/search/lib/lexicon'
 import { searchConfig } from '@wholebuzz/search/lib/search'
 import { FingerprintedLabeledLexiconDataset } from '@wholebuzz/search/lib/types'
 
+// https://www.kaggle.com/rmisra/news-category-dataset
 interface Headline {
+  authors: string
+  date: string
+  category: string
   link: string
   headline: string
+  short_description: string
   fingerprint?: bigint
 }
-// https://www.kaggle.com/rmisra/news-category-dataset
 const items: Headline[] = await readLines<Headline>(
   new LocalFileSystem(),
   'News_Category_Dataset_v2.json.gz',
@@ -27,6 +45,10 @@ const items: Headline[] = await readLines<Headline>(
 )
 const getItemText = (x: Headline) => x.headline
 const getItemLabel = (x: Headline) => x.link
+
+// Needs more data to build Lexicon.
+// https://github.com/wholebuzz/search/blob/master/docs/modules/lexicon.md#readlexicon
+const lexicon = newLexicon({ items, getItemText }, searchConfig)
 const dataset: FingerprintedLabeledLexiconDataset<Headline> = {
   items,
   getItemText,
@@ -37,17 +59,29 @@ const dataset: FingerprintedLabeledLexiconDataset<Headline> = {
     else x.fingerprint = fp
     return x
   },
-  lexicon: newLexicon({ items, getItemText }, searchConfig),
+  lexicon,
 }
 
-const clusters: Headline[][] = clustersFromLabels(dataset, simhashClusterText(dataset))
+// Needs additional information like Headline.date for temporal filtering.
+const clusters: Headline[][] = clustersFromLabels(
+  dataset,
+  simhashClusterText(dataset),
+  dataset.setItemFingerprint
+)
 for (let i = 0; i < clusters.length; i++) {
   const outliers = findOutliersByTFIDFCentrality(
     { items: clusters[i], getItemText, lexicon: dataset.lexicon }
   )
-  clusters[i] = clusters[i].filter((_, i) => !outliers.outliers[i])
+  // Needs to filter items, sort cluster, filter clusters, etc on custom basis.
+  const cluster = clusters[i] = clusters[i].filter((_, i) => !outliers.outliers[i])
+
+  // Needs additional information like Headline.category for hierarchical clustering.
+  // for (const c of parentCategories(cluster)) ((hc[c] ?? (hc[c] = [])).push(cluster)
 }
+// Needs final sorts and filters on custom basis.
 console.log(clusters)
+// Should combine previous clusters with mapClusters.
+// https://github.com/wholebuzz/cluster/blob/master/docs/modules/mapping.md#mapclusters
 ```
 
 ## Table of contents

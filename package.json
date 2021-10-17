@@ -1,7 +1,7 @@
 {
   "name": "@wholebuzz/cluster",
-  "version": "0.0.5",
-  "description": "SimHash text clustering with OutRank outlier removal and variation of information analysis.",
+  "version": "0.0.6",
+  "description": "SimHash text clustering with OutRank outlier removal and Variation of Information analysis.",
   "author": "wholebuzz",
   "license": "Apache-2.0",
   "repository": {
