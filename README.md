@@ -2,19 +2,19 @@
 
 SimHash text clustering with OutRank outlier removal and Variation of Information analysis.
 
-- [newLexicon()](https://github.com/wholebuzz/search/blob/master/docs/modules/lexicon.md#newlexicon) builds a [TFIDF](https://en.wikipedia.org/wiki/Tf%E2%80%93idf) lexicon used to weight [SimHash](https://en.wikipedia.org/wiki/SimHash) fingerprints.
+- [newLexicon()](https://github.com/wholebuzz/search/blob/master/docs/modules/lexicon.md#newlexicon) builds a [TFIDF](https://en.wikipedia.org/wiki/Tf%E2%80%93idf) lexicon to weight [SimHash](https://en.wikipedia.org/wiki/SimHash) fingerprints.
 
-- [simhashClusterText](docs/modules/text.md#simhashclustertext) performs `rounds` of [Beam Search](https://en.wikipedia.org/wiki/Beam_search) to find `fingerprint` neighborhoods by [Hamming distance](https://en.wikipedia.org/wiki/Hamming_distance). Neighbors are clustered with [DBSCAN](https://en.wikipedia.org/wiki/DBSCAN).
+- [simhashClusterText](docs/modules/text.md#simhashclustertext) performs `rounds` of [Beam Search](https://en.wikipedia.org/wiki/Beam_search) to find `fingerprint` neighborhoods by [Hamming distance](https://en.wikipedia.org/wiki/Hamming_distance). Neighbors are hierarchically clustered with [DBSCAN](https://en.wikipedia.org/wiki/DBSCAN).
 
-- [findOutliersByTFIDFCentrality](docs/modules/text.md#findoutliersbytfidfcentrality) finds outliers with [OutRank](https://www.cse.msu.edu/~ptan/papers/IJAIT.pdf) as the [ClusterCentralityMeasure](https://github.com/wholebuzz/cluster/blob/master/docs/enums/outliers.clustercentralitymeasure.md). Outliers are removed by [InterquantileRange](docs/enums/outliers.findoutliersmethod.md#interquantilerange) or [PeirceCriterion](docs/enums/outliers.findoutliersmethod.md#peircecriterion).
+- [findOutliersByTFIDFCentrality](docs/modules/text.md#findoutliersbytfidfcentrality) finds outliers using [OutRank](https://www.cse.msu.edu/~ptan/papers/IJAIT.pdf) as the [ClusterCentralityMeasure](https://github.com/wholebuzz/cluster/blob/master/docs/enums/outliers.clustercentralitymeasure.md). Outliers are removed by [InterquantileRange](docs/enums/outliers.findoutliersmethod.md#interquantilerange) or [PeirceCriterion](docs/enums/outliers.findoutliersmethod.md#peircecriterion).
 
 - [mapClusters](docs/modules/mapping.md#mapclusters) analyzes or carries forward previous clusters by [Variation of Information](https://en.wikipedia.org/wiki/Variation_of_information).
 
 ## References
 
-- [[1](https://dash.harvard.edu/bitstream/handle/1/38811431/GHOCHE-SENIORTHESIS-2016.pdf)] Real-Time Tf-Idf Clustering Using Simhash, Approximate Nearest Neighbors, and DBSCAN
-- [[2](https://www.cse.msu.edu/~ptan/papers/IJAIT.pdf)] OutRank: A GRAPH-BASED OUTLIER DETECTION FRAMEWORK USING RANDOM WALK
-- [[3](https://en.wikipedia.org/wiki/DBSCAN)] Density-based spatial clustering of applications with noise
+- [[1](https://dash.harvard.edu/bitstream/handle/1/38811431/GHOCHE-SENIORTHESIS-2016.pdf)] Ghoche, 2016. Real-Time Tf-Idf Clustering Using Simhash, Approximate Nearest Neighbors, and DBSCAN
+- [[2](https://www.cse.msu.edu/~ptan/papers/IJAIT.pdf)] Moonesinghe, Tan. 2008. OutRank: A GRAPH-BASED OUTLIER DETECTION FRAMEWORK USING RANDOM WALK
+- [[3](https://en.wikipedia.org/wiki/DBSCAN)] Ester, Kriegel. 1996. Density-based spatial clustering of applications with noise
 
 ## Example
 
