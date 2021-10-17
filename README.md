@@ -6,7 +6,7 @@ SimHash text clustering with OutRank outlier removal and Variation of Informatio
 
 - [simhashClusterText](docs/modules/text.md#simhashclustertext) performs `rounds` of [Beam Search](https://en.wikipedia.org/wiki/Beam_search) to find `fingerprint` neighborhoods by [Hamming distance](https://en.wikipedia.org/wiki/Hamming_distance). Neighbors are hierarchically clustered with [DBSCAN](https://en.wikipedia.org/wiki/DBSCAN).
 
-- [findOutliersByTFIDFCentrality](docs/modules/text.md#findoutliersbytfidfcentrality) finds outliers using [OutRank](https://www.cse.msu.edu/~ptan/papers/IJAIT.pdf) as the [ClusterCentralityMeasure](https://github.com/wholebuzz/cluster/blob/master/docs/enums/outliers.clustercentralitymeasure.md). Outliers are removed by [InterquantileRange](docs/enums/outliers.findoutliersmethod.md#interquantilerange) or [PeirceCriterion](docs/enums/outliers.findoutliersmethod.md#peircecriterion).
+- [findOutliersByTFIDFCentrality](docs/modules/text.md#findoutliersbytfidfcentrality) finds outliers using [OutRank](https://www.cse.msu.edu/~ptan/papers/IJAIT.pdf) as the [ClusterCentralityMeasure](https://github.com/wholebuzz/cluster/blob/master/docs/enums/outliers.clustercentralitymeasure.md). Outliers are removed by [Interquantile Range](https://en.wikipedia.org/wiki/Interquartile_range) or [Peirce's Criterion](https://en.wikipedia.org/wiki/Peirce%27s_criterion).
 
 - [mapClusters](docs/modules/mapping.md#mapclusters) analyzes or carries forward previous clusters by [Variation of Information](https://en.wikipedia.org/wiki/Variation_of_information).
 
