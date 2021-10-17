@@ -8,6 +8,7 @@
 
 - [cluster](modules/cluster.md)
 - [hamming](modules/hamming.md)
+- [mapping](modules/mapping.md)
 - [math](modules/math.md)
 - [outliers](modules/outliers.md)
 - [outrank](modules/outrank.md)

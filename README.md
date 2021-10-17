@@ -56,6 +56,7 @@ console.log(clusters)
 
 - [cluster](docs/modules/cluster.md)
 - [hamming](docs/modules/hamming.md)
+- [mapping](docs/modules/mapping.md)
 - [math](docs/modules/math.md)
 - [outliers](docs/modules/outliers.md)
 - [outrank](docs/modules/outrank.md)

@@ -6,8 +6,11 @@ export function isOneDimensional(arr: number[] | number[][]): arr is number[] {
 }
 
 export function maxIndex(arr: number[]) {
-  return arr.reduce((maxInd, x, i) => (x > arr[maxInd] ? i : maxInd), 0)
+  return arr.reduce((maxInd, x, i) => (x > arr[maxInd] ? i : maxInd), -1)
 }
+
+export const maxKey = (obj: Record<string, number>) =>
+  Object.keys(obj).reduce((a, b) => (obj[a] > obj[b] ? a : b))
 
 export function softMax(values: number[]): number[] {
   const max = Math.max(...values)

@@ -14,6 +14,7 @@
 - [isOneDimensional](math.md#isonedimensional)
 - [mahalanobisDistance2](math.md#mahalanobisdistance2)
 - [maxIndex](math.md#maxindex)
+- [maxKey](math.md#maxkey)
 - [newPermutation](math.md#newpermutation)
 - [objectMean](math.md#objectmean)
 - [softMax](math.md#softmax)
@@ -70,7 +71,7 @@ References: [[1](https://en.wikipedia.org/wiki/Mahalanobis_distance)]
 
 **Returns:** *number*
 
-Defined in: [math.ts:34](https://github.com/wholebuzz/cluster/blob/master/src/math.ts#L34)
+Defined in: [math.ts:37](https://github.com/wholebuzz/cluster/blob/master/src/math.ts#L37)
 
 ___
 
@@ -90,6 +91,22 @@ Defined in: [math.ts:8](https://github.com/wholebuzz/cluster/blob/master/src/mat
 
 ___
 
+### maxKey
+
+▸ `Const` **maxKey**(`obj`: *Record*<string, number\>): *string*
+
+#### Parameters
+
+| Name | Type |
+| :------ | :------ |
+| `obj` | *Record*<string, number\> |
+
+**Returns:** *string*
+
+Defined in: [math.ts:12](https://github.com/wholebuzz/cluster/blob/master/src/math.ts#L12)
+
+___
+
 ### newPermutation
 
 ▸ **newPermutation**(`d`: *number*): *bigint*[]
@@ -104,7 +121,7 @@ Creates a random permutation of the integers from 0 to d - 1.
 
 **Returns:** *bigint*[]
 
-Defined in: [math.ts:47](https://github.com/wholebuzz/cluster/blob/master/src/math.ts#L47)
+Defined in: [math.ts:50](https://github.com/wholebuzz/cluster/blob/master/src/math.ts#L50)
 
 ___
 
@@ -120,7 +137,7 @@ ___
 
 **Returns:** *Record*<string, number\>
 
-Defined in: [math.ts:19](https://github.com/wholebuzz/cluster/blob/master/src/math.ts#L19)
+Defined in: [math.ts:22](https://github.com/wholebuzz/cluster/blob/master/src/math.ts#L22)
 
 ___
 
@@ -136,4 +153,4 @@ ___
 
 **Returns:** *number*[]
 
-Defined in: [math.ts:12](https://github.com/wholebuzz/cluster/blob/master/src/math.ts#L12)
+Defined in: [math.ts:15](https://github.com/wholebuzz/cluster/blob/master/src/math.ts#L15)
