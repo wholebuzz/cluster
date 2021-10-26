@@ -18,7 +18,7 @@ SimHash text clustering with OutRank outlier removal and Variation of Informatio
 
 ## Example
 
-```
+```typescript
 import { clustersFromLabels } from '@wholebuzz/cluster/lib/cluster'
 import { zero } from '@wholebuzz/cluster/lib/hamming'
 import { LocalFileSystem } from '@wholebuzz/fs/lib/fs'
