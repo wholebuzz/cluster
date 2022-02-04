@@ -1,4 +1,4 @@
-# @wholebuzz/cluster
+# @wholebuzz/cluster ![image](https://img.shields.io/npm/v/@wholebuzz/cluster) [![test](https://github.com/wholebuzz/cluster/actions/workflows/test.yaml/badge.svg)](https://github.com/wholebuzz/cluster/actions/workflows/test.yaml)
 
 SimHash text clustering with OutRank outlier removal and Variation of Information analysis.
 
